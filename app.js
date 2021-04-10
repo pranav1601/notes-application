@@ -1,15 +1,53 @@
-// const fs=require('fs')
-// const utils=require('./utils.js')
-const notes=require('./notes.js')
-const validator=require('validator')
 const chalk=require('chalk')
-// // fs.writeFileSync('notes.txt','my name is pranav')
+const yargs=require('yargs')
+const getNotes=require('./notes.js')
 
-// fs.appendFileSync('notes.txt','my name is still pranav agarwal')
 
+yargs.version('1.1.0')
 
-console.log(notes())
+yargs.command({
+    command:'add',
+    describe:'add a new note',
+    builder:{
+        title:{
+            describe:'Note title',
+            demandOption: true,
+            type:'string'
+        },
+        body:{
+            describe:'Body of the note',
+            demandOption: true,
+            type:'string'
+        }
+    },
+    handler: function(argv){
+        console.log('Title: '+argv.title)
+        console.log(argv.body)
+    }
+})
 
-console.log(validator.isURL('gmail'))
+yargs.command({
+    command:'remove',
+    describe:'remove a node',
+    handler:function(argv){
+        console.log('removing a note',argv)
+    }
+})
 
-console.log(chalk.red.inverse.bold('Success'))
+yargs.command({
+    command:'list',
+    describe:'listing the notes',
+    handler:function(){
+        console.log('listing all the notes')
+    }
+})
+
+yargs.command({
+    command:'read',
+    describe:'reading the notes',
+    handler:function(){
+        console.log('reading the notes')
+    }
+})
+
+yargs.parse()
