@@ -9,7 +9,7 @@ Instructions to run and use the application are given below:
 
 * Start terminal(Mac/Linux) or command window(Windows). Ensure you have git, node and npm installed.
 * Run command `https://github.com/pranav1601/notes-application.git`
-* Run command `cd notes application`
+* Run command `cd notes-application`
 * install the dependencies-> Run command -> `npm install`
 
 ## How to use the application?
